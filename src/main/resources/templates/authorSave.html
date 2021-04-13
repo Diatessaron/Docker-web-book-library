@@ -48,9 +48,13 @@
             url: '/api/authors',
             method: 'post',
             contentType: "application/json",
-            data: JSON.stringify({author: value})
+            data: JSON.stringify({author: value}),
+            complete: function (xhr) {
+                if (xhr.status === 201) {
+                    document.location.href = '/authors'
+                }
+            }
         })
-        document.location.href = '/authors'
     }
 </script>
 

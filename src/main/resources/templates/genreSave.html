@@ -48,9 +48,13 @@
             url: '/api/genres',
             method: 'post',
             contentType: "application/json",
-            data: JSON.stringify({genre: value})
+            data: JSON.stringify({genre: value}),
+            complete: function (xhr) {
+                if (xhr.status === 201) {
+                    document.location.href = '/genres'
+                }
+            }
         })
-        document.location.href = '/genres'
     }
 </script>
 
